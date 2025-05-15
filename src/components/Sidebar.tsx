@@ -18,14 +18,14 @@ interface NavItemType {
 }
 const navItems: NavItemType[] = [
   {
-    icon: <FaHome size={20} />, // Adjust size as needed
+    icon: <FaHome size={20} />,
     label: "Home",
     route: "/home",
   },
   {
-    icon: <FaUsers size={20} />, // This icon is used in your image for Employee Management
+    icon: <FaUsers size={20} />,
     label: "Employee Management",
-    route: "/employee-management", // This item is highlighted in your image
+    route: "/employee-management",
   },
   {
     icon: <FaRegBuilding size={20} />,
@@ -33,27 +33,27 @@ const navItems: NavItemType[] = [
     route: "/client-management",
   },
   {
-    icon: <FaRegFileAlt size={20} />, // Icon for a document, matching the image for Leave Management
+    icon: <FaRegFileAlt size={20} />,
     label: "Leave Management",
     route: "/leave-management",
   },
   {
-    icon: <FaRegCreditCard size={20} />, // Icon for a credit card, matching Payroll & Payslip
+    icon: <FaRegCreditCard size={20} />,
     label: "Payroll & Payslip",
     route: "/payroll-payslip",
   },
   {
-    icon: <FaUser size={20} />, // Icon for a single user, matching Ticketing System
+    icon: <FaUser size={20} />,
     label: "Ticketing System Module",
     route: "/ticketing-system",
   },
   {
-    icon: <FaRegListAlt size={20} />, // Icon for a list/tasks, matching Invoicing & Billing
+    icon: <FaRegListAlt size={20} />,
     label: "Invoicing & Billing Module",
     route: "/invoicing-billing",
   },
   {
-    // No icon is shown for this item in your image
+    icon: <FaRegListAlt size={20} className='opacity-0' />,
     label: "Access & Permission",
     route: "/access-permission",
   },
@@ -69,13 +69,11 @@ interface NavItemProps {
 
 const Sidebar = () => {
   const [eCommerceOpen, setECommerceOpen] = useState(false);
-  const [pathName, setPathName] = useState<string>("/employee-management");
+  const [pathName, setPathName] = useState<string>(window.location.pathname);
 
   useEffect(() => {
-    const handleLocationChange = () => setPathName(window.location.pathname);
-    window.addEventListener("popstate", handleLocationChange);
-    return () => window.removeEventListener("popstate", handleLocationChange);
-  }, []);
+    setPathName(window.location.pathname);
+  }, [window.location.pathname]);
 
   const toggleECommerce = () => {
     setECommerceOpen((prev) => !prev);
@@ -190,7 +188,6 @@ const Sidebar = () => {
                       key={subIndex}
                       label={subItem.label}
                       route={subItem.route}
-                      // closeSidebar={() => setSidebarOpen(false)}
                     />
                   ))}
                 </div>

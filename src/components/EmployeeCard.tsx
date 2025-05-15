@@ -58,7 +58,7 @@ const EmployeeCard = () => {
       <section className="bg-white rounded-lg shadow p-6 flex space-x-6 mb-6 relative mx-auto">
         <div className="flex-shrink-0">
           <img
-            src={employee.image || 'https://via.placeholder.com/128'}
+            src={employee.image || '/user.jpg'}
             alt={employee.name}
             className="w-32 h-32 rounded-lg object-cover"
           />
@@ -128,7 +128,7 @@ const EmployeeCard = () => {
           <div className="mb-6 flex flex-col items-center">
             <div className="relative inline-block mb-2">
               <img
-                src={previewImage || 'https://via.placeholder.com/128?text=No+Image'} // Assuming previewImage is from state
+                src={previewImage || 'user.jpg'} // Assuming previewImage is from state
                 alt="Preview"
                 className="w-24 h-24 rounded-lg object-cover"
               />
