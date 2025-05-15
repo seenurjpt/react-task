@@ -11,7 +11,7 @@ function App() {
     <Provider store={store}>
       <div className='flex h-screen'>
         {/* Sidebar - sticky full height */}
-        <div className='sticky top-0 h-screen w-80 overflow-auto bg-white shadow'>
+        <div className='sticky top-0 h-screen w-80 overflow-auto bg-white'>
           <Sidebar />
         </div>
 
