@@ -154,7 +154,7 @@ const Sidebar = () => {
       <div className='fixed inset-0 bg-dark-800 bg-opacity-40 z-40 md:hidden' />
       <div
         id='sidebar-panel'
-        className={`fixed top-0 left-0 z-50 w-80 h-full bg-white p-6 shadow transform transition-transform duration-300 ease-in-out
+        className={`fixed top-0 left-0 z-50 w-80 h-full bg-white p-6  transform transition-transform duration-300 ease-in-out
         ${"translate-x-0"} md:relative md:translate-x-0 md:z-10`}
       >
         <div className='flex justify-between items-center mb-6'>
