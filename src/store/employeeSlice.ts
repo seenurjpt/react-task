@@ -4,7 +4,7 @@ interface Note {
   id: any;
   content: string;
   date: string;
-  type: 'positive' | 'negative';
+  priority: 'important' | 'normal';
 }
 
 interface EmploymentDetails {
@@ -83,14 +83,14 @@ const initialState: EmployeeState = {
       content:
         'Jerome has been working and leading on PV-21 project with enthusiasm and high level of dedication.',
       date: '15/04/2025',
-      type: 'positive',
+      priority: 'important',
     },
     {
       id: '2',
       content:
         'Jerome has been caught smoking in the office premises which violates company policy.',
       date: '05/01/2025',
-      type: 'negative',
+      priority: 'normal',
     },
   ],
 };
@@ -103,8 +103,8 @@ const employeeSlice = createSlice({
       state.employeeData = action.payload;
     },
     addNote(state, action: PayloadAction<Note>) {
-      state.notes.push(action.payload);
-    },
+  state.notes.push(action.payload);
+},
   },
 });
 
