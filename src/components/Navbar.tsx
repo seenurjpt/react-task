@@ -68,6 +68,12 @@ const Navbar = () => {
             </span>
           )}
         </div>
+        <div className='flex flex-col text-xs ml-[-5px]'>
+          <div>
+            {userData?.firstName} {userData?.lastName}
+          </div>
+          <div>{userData?.role}</div>
+        </div>
       </div>
     </header>
   );
