@@ -55,7 +55,7 @@ const EmployeeCard = () => {
   return (
     <>
       {/* Employee Card Display */}
-      <section className="bg-white rounded-lg shadow p-6 flex space-x-6 mb-6 relative max-w-4xl mx-auto">
+      <section className="bg-white rounded-lg shadow p-6 flex space-x-6 mb-6 relative mx-auto">
         <div className="flex-shrink-0">
           <img
             src={employee.image || 'https://via.placeholder.com/128'}
