@@ -1,9 +1,16 @@
-import "./App.css";
+import logo from './logo.svg';
+import './App.css';
+import { Provider } from 'react-redux';
+import { store } from './store';
+import EmployeeCard from './components/EmployeeCard';
 
 function App() {
   return (
     <>
-      <div className="h-screen flex justify-center align-middle text-pink-700">Good</div>
+         <Provider store={store}>
+            <EmployeeCard />
+            {/* <EmployeeTabs /> */}
+         </Provider>
     </>
   );
 }
