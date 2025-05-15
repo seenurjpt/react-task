@@ -16,7 +16,7 @@ const userData: UserData = {
 
 const Navbar = () => {
   return (
-    <header className='bg-white px-4 py-3 shadow-sm flex justify-between items-center'>
+    <header className='bg-slate-100 px-4 py-3 flex justify-between items-center'>
       <div className='flex items-center gap-4 flex-1'>
         {/* Search Input */}
         <div className='relative w-full max-w-xs'>
