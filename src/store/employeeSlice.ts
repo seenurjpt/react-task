@@ -53,7 +53,7 @@ const initialState: EmployeeState = {
     name: 'Jerome Bell',
     position: 'Senior Software Developer',
     image: '',
-    linkedin: 'https://www.linkedin.com/in/jerome.bell/',
+    linkedin: '/user.jpg',
     email: 'jerome.bell@invision.com',
     phone: '629.555.0129',
     address: '232, 4th Street, Melbourne, Australia',

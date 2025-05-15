@@ -41,7 +41,7 @@ const NotesSection = () => {
   };
 
   return (
-    <aside className="max-w-4xl mx-auto mt-8 bg-white rounded-lg p-6 shadow">
+    <aside className="max-w-4xl mx-auto bg-white rounded-lg p-6 shadow">
       <header className="flex justify-between items-center mb-4">
         <h3 className="text-lg font-semibold">Notes</h3>
         <button

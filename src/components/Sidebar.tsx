@@ -72,10 +72,8 @@ const Sidebar = () => {
   const [pathName, setPathName] = useState<string>(window.location.pathname);
 
   useEffect(() => {
-    const handleLocationChange = () => setPathName(window.location.pathname);
-    window.addEventListener("popstate", handleLocationChange);
-    return () => window.removeEventListener("popstate", handleLocationChange);
-  }, []);
+    setPathName(window.location.pathname);
+  }, [window.location.pathname]);
 
   const toggleECommerce = () => {
     setECommerceOpen((prev) => !prev);
