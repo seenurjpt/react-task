@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchDocuments } from '../store/employeeTabsSlice'; // Ensure this path is correct
-import { RootState, AppDispatch } from '../store'; // Ensure this path is correct
-import { FaFileAlt, FaDownload } from 'react-icons/fa'; // Example icons
+import { fetchDocuments } from '../store/employeeTabsSlice';
+import { RootState, AppDispatch } from '../store';
+import { FaFileAlt, FaDownload } from 'react-icons/fa';
 
 const DocumentsTab = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -17,9 +17,6 @@ const DocumentsTab = () => {
 
   return (
     <div className="bg-white rounded-lg p-6 border border-gray-200">
-      {/* Optional: Add a title if desired */}
-      {/* <h3 className="text-base font-semibold text-gray-800 mb-4">Uploaded Documents</h3> */}
-
       {documents.length === 0 ? (
         <p className="text-sm text-gray-500 text-center">No documents have been uploaded.</p>
       ) : (
@@ -51,7 +48,7 @@ const DocumentsTab = () => {
                 href={doc.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                download // Optional: Suggests download to the browser
+                download
                 className="text-gray-400 hover:text-indigo-600 p-1 rounded-full hover:bg-indigo-50"
                 aria-label={`Download ${doc.name}`}
               >

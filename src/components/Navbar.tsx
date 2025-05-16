@@ -1,5 +1,9 @@
 import { FaSearch, FaBars, FaBell } from "react-icons/fa";
 
+interface NavbarProps {
+  toggleSidebar: () => void;
+}
+
 interface UserData {
   profile?: string;
   firstName?: string;
@@ -14,14 +18,17 @@ const userData: UserData = {
   // profile: "/logo1.png",
 };
 
-const Navbar = () => {
+const Navbar: React.FC<NavbarProps> = ({ toggleSidebar }) => {
   return (
     <header className='bg-slate-100 px-4 py-3 flex justify-between items-center'>
-      <div className='flex items-center gap-4 flex-1'>
+      <div className='flex items-center gap-1 flex-1 min-w-[200px]'>
+        {/* Hamburger for Mobile */}
+        <button className='md:hidden' onClick={toggleSidebar}>
+          <FaBars className='text-gray-600 text-xl' />
+        </button>
         {/* Search Input */}
         <div className='relative w-full max-w-xs'>
           {" "}
-          {/* max-w-xs or adjust as needed */}
           <div className='absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none'>
             <FaSearch className='h-4 w-4 text-gray-400' />
           </div>

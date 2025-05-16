@@ -1,10 +1,11 @@
-import React, { useState, ChangeEvent, useRef, useEffect } from "react";
+import { useState, ChangeEvent, useRef, useEffect } from "react";
 import {
   FaPencilAlt,
   FaLinkedin,
   FaEnvelope,
   FaPhone,
   FaMapMarkerAlt,
+  FaTimes,
 } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../store";
@@ -117,146 +118,176 @@ const EmployeeCard = () => {
         </div>
       </section>
 
-      {/* Modal for Editing */}
-           {/* Modal for Editing Employee Details */}
       <Modal
-        isOpen={modalIsOpen} // Assuming modalIsOpen, closeModal, handleSave, etc. are defined in EmployeeCard
+        isOpen={modalIsOpen}
         onRequestClose={closeModal}
         contentLabel='Edit Employee Details'
-        // Overlay class for centering and background
-        overlayClassName="fixed inset-0 bg-black/60 flex items-center justify-center p-4 z-50" // Consistent overlay
-        // Content class for modal itself
-        className="bg-white rounded-xl shadow-2xl flex flex-col max-w-lg w-full max-h-[95vh] outline-none" // Consistent modal shell
+        overlayClassName='fixed inset-0 bg-black/60 flex items-center justify-center p-4 z-50' // Consistent overlay
+        className='bg-white rounded-xl shadow-2xl flex flex-col max-w-lg w-full max-h-[95vh] outline-none' // Consistent modal shell
       >
-        {/* Modal Header */}
-        <div className="px-8 py-5 border-b border-gray-200 flex-shrink-0"> {/* Consistent padding & style */}
-          <h2 className="text-xl font-semibold text-gray-800 text-center"> {/* Consistent title style */}
+        <div className='px-8 py-5 border-b border-gray-200 flex-shrink-0'>
+          {" "}
+          <h2 className='text-xl font-semibold text-gray-800 text-center'>
+            {" "}
             Edit Employee Details
           </h2>
         </div>
 
-        {/* Modal Body (Scrollable Area) */}
-        <div className="px-8 py-6 flex-grow overflow-y-auto custom-scrollbar"> {/* Consistent padding & custom scrollbar */}
+        <div className='px-8 py-6 flex-grow overflow-y-auto custom-scrollbar'>
+          {" "}
           {/* Image Upload Section */}
-          <div className="mb-6 flex flex-col items-center">
-            <div className="relative inline-block mb-2">
+          <div className='mb-6 flex flex-col items-center'>
+            <div className='relative inline-block mb-2'>
               <img
-                src={previewImage || 'user.jpg'} // Assuming previewImage is from state
-                alt="Preview"
-                className="w-24 h-24 rounded-lg object-cover"
+                src={previewImage || "user.jpg"}
+                alt='Preview'
+                className='w-24 h-24 rounded-lg object-cover'
               />
               {previewImage && (
                 <button
-                  type="button"
-                  onClick={handleRemoveImage} // Assuming handleRemoveImage is defined
-                  className="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 bg-red-100 text-red-600 rounded-full p-0.5 shadow hover:bg-red-200 w-5 h-5 flex items-center justify-center text-xs"
-                  aria-label="Remove Image"
+                  type='button'
+                  onClick={handleRemoveImage}
+                  className='absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 bg-red-100 text-red-600 rounded-full p-0.5 shadow hover:bg-red-200 w-5 h-5 flex items-center justify-center text-xs'
+                  aria-label='Remove Image'
                 >
-                  ✕ {/* Cross icon */}
+                  <FaTimes />
                 </button>
               )}
             </div>
             <input
-              type="file"
-              accept="image/*"
-              ref={fileInputRef} // Assuming fileInputRef is defined
-              className="hidden"
-              onChange={handleImageChange} // Assuming handleImageChange is defined
+              type='file'
+              accept='image/*'
+              ref={fileInputRef}
+              className='hidden'
+              onChange={handleImageChange}
             />
             <button
               type='button'
               onClick={() => fileInputRef.current?.click()}
-              className="text-sm text-indigo-600 hover:text-indigo-700 font-medium hover:underline" // Added hover:underline
+              className='text-sm text-indigo-600 hover:text-indigo-700 font-medium hover:underline' // Added hover:underline
             >
               {previewImage ? "Change Image" : "Upload Image"}
             </button>
           </div>
-
           {/* Form Inputs */}
-          <div className="space-y-5"> {/* Adjusted space-y slightly */}
+          <div className='space-y-5'>
+            {" "}
+            {/* Adjusted space-y slightly */}
             <div>
-              <label htmlFor="name" className="block text-sm font-semibold text-gray-800 mb-1.5">Name</label> {/* Consistent label */}
+              <label
+                htmlFor='name'
+                className='block text-sm font-semibold text-gray-800 mb-1.5'
+              >
+                Name
+              </label>{" "}
+              {/* Consistent label */}
               <input
-                type="text"
-                id="name"
-                name="name"
+                type='text'
+                id='name'
+                name='name'
                 value={formData.name} // Assuming formData and handleChange are defined
                 onChange={handleChange}
-                className="block w-full rounded-lg border border-gray-300 p-2.5 text-sm text-gray-900 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500" // Consistent input
+                className='block w-full rounded-lg border border-gray-300 p-2.5 text-sm text-gray-900 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500' // Consistent input
               />
             </div>
             <div>
-              <label htmlFor="position" className="block text-sm font-semibold text-gray-800 mb-1.5">Position</label>
+              <label
+                htmlFor='position'
+                className='block text-sm font-semibold text-gray-800 mb-1.5'
+              >
+                Position
+              </label>
               <input
                 type='text'
                 id='position'
                 name='position'
                 value={formData.position}
                 onChange={handleChange}
-                className="block w-full rounded-lg border border-gray-300 p-2.5 text-sm text-gray-900 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
+                className='block w-full rounded-lg border border-gray-300 p-2.5 text-sm text-gray-900 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500'
               />
             </div>
             <div>
-              <label htmlFor="linkedin" className="block text-sm font-semibold text-gray-800 mb-1.5">LinkedIn URL</label>
+              <label
+                htmlFor='linkedin'
+                className='block text-sm font-semibold text-gray-800 mb-1.5'
+              >
+                LinkedIn URL
+              </label>
               <input
                 type='text'
                 id='linkedin'
                 name='linkedin'
                 value={formData.linkedin}
                 onChange={handleChange}
-                className="block w-full rounded-lg border border-gray-300 p-2.5 text-sm text-gray-900 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 placeholder-gray-400" // Added placeholder style
-                placeholder="https://linkedin.com/in/username"
+                className='block w-full rounded-lg border border-gray-300 p-2.5 text-sm text-gray-900 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 placeholder-gray-400' // Added placeholder style
+                placeholder='https://linkedin.com/in/username'
               />
             </div>
             <div>
-              <label htmlFor="email" className="block text-sm font-semibold text-gray-800 mb-1.5">Email</label>
+              <label
+                htmlFor='email'
+                className='block text-sm font-semibold text-gray-800 mb-1.5'
+              >
+                Email
+              </label>
               <input
                 type='email'
                 id='email'
                 name='email'
                 value={formData.email}
                 onChange={handleChange}
-                className="block w-full rounded-lg border border-gray-300 p-2.5 text-sm text-gray-900 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
+                className='block w-full rounded-lg border border-gray-300 p-2.5 text-sm text-gray-900 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500'
               />
             </div>
             <div>
-              <label htmlFor="phone" className="block text-sm font-semibold text-gray-800 mb-1.5">Phone</label>
+              <label
+                htmlFor='phone'
+                className='block text-sm font-semibold text-gray-800 mb-1.5'
+              >
+                Phone
+              </label>
               <input
                 type='text'
                 id='phone'
                 name='phone'
                 value={formData.phone}
                 onChange={handleChange}
-                className="block w-full rounded-lg border border-gray-300 p-2.5 text-sm text-gray-900 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500"
+                className='block w-full rounded-lg border border-gray-300 p-2.5 text-sm text-gray-900 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500'
               />
             </div>
             <div>
-              <label htmlFor="address" className="block text-sm font-semibold text-gray-800 mb-1.5">Address</label>
+              <label
+                htmlFor='address'
+                className='block text-sm font-semibold text-gray-800 mb-1.5'
+              >
+                Address
+              </label>
               <textarea
                 id='address'
                 name='address'
                 value={formData.address}
                 onChange={handleChange}
-                className="block w-full rounded-lg border border-gray-300 p-2.5 text-sm text-gray-900 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 resize-y" // Changed resize-none to resize-y
+                className='block w-full rounded-lg border border-gray-300 p-2.5 text-sm text-gray-900 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 resize-y' // Changed resize-none to resize-y
                 rows={3}
               />
             </div>
           </div>
         </div>
 
-        {/* Modal Footer */}
-        <div className="px-8 py-5 border-t border-gray-200 flex justify-end items-center space-x-3 flex-shrink-0"> {/* Consistent padding */}
+        <div className='px-8 py-5 border-t border-gray-200 flex justify-end items-center space-x-3 flex-shrink-0'>
+          {" "}
+          {/* Consistent padding */}
           <button
             type='button'
             onClick={closeModal}
-            className="px-5 py-2.5 rounded-lg border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-1" // Consistent button
+            className='px-5 py-2.5 rounded-lg border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-1' // Consistent button
           >
             Cancel
           </button>
           <button
             type='button'
             onClick={handleSave}
-            className="px-5 py-2.5 rounded-lg border border-transparent bg-indigo-600 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-1" // Consistent button
+            className='px-5 py-2.5 rounded-lg border border-transparent bg-indigo-600 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-1' // Consistent button
           >
             Save Changes
           </button>

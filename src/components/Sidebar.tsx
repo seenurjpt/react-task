@@ -10,6 +10,11 @@ import {
   FaTimes,
 } from "react-icons/fa";
 
+interface SidebarProps {
+  sidebarOpen: boolean;
+  setSidebarOpen: (open: boolean) => void;
+}
+
 interface NavItemType {
   icon?: ReactNode;
   label: string;
@@ -67,7 +72,7 @@ interface NavItemProps {
   closeSidebar?: () => void;
 }
 
-const Sidebar = () => {
+const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, setSidebarOpen }) => {
   const [eCommerceOpen, setECommerceOpen] = useState(false);
   const [pathName, setPathName] = useState<string>(window.location.pathname);
 
@@ -149,11 +154,15 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className='fixed inset-0 bg-dark-800 bg-opacity-40 z-40 md:hidden' />
+      {sidebarOpen && (
+        <div className='fixed inset-0 bg-dark-800 bg-opacity-40 z-40 md:hidden' />
+      )}{" "}
       <div
         id='sidebar-panel'
         className={`fixed top-0 left-0 z-50 w-80 h-full bg-white p-6  transform transition-transform duration-300 ease-in-out
-        ${"translate-x-0"} md:relative md:translate-x-0 md:z-10`}
+          ${
+            sidebarOpen ? "translate-x-0" : "-translate-x-full"
+          } md:relative md:translate-x-0 md:z-10`}
       >
         <div className='flex justify-between items-center mb-6'>
           <div className='flex gap-2 items-center'>
@@ -165,7 +174,13 @@ const Sidebar = () => {
               className='object-cover'
             />
           </div>
-          <FaTimes className='md:hidden cursor-pointer' />
+          <FaTimes
+            className='md:hidden cursor-pointer h-8'
+            onClick={() => {
+              setSidebarOpen(false);
+            }}
+            
+          />
         </div>
 
         <nav className='flex flex-col gap-5 sidebar-main hide-scrollbar'>
@@ -188,6 +203,9 @@ const Sidebar = () => {
                       key={subIndex}
                       label={subItem.label}
                       route={subItem.route}
+                      onClick={() => {
+                        setSidebarOpen(false);
+                      }}
                     />
                   ))}
                 </div>

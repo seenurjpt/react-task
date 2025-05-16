@@ -1,10 +1,10 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface Note {
   id: any;
   content: string;
   date: string;
-  priority: 'important' | 'normal';
+  priority: "important" | "normal";
 }
 
 interface EmploymentDetails {
@@ -42,7 +42,6 @@ export interface EmployeeData {
   image: any;
 }
 
-
 interface EmployeeState {
   employeeData: EmployeeData;
   notes: Note[];
@@ -50,66 +49,66 @@ interface EmployeeState {
 
 const initialState: EmployeeState = {
   employeeData: {
-    name: 'Jerome Bell',
-    position: 'Senior Software Developer',
-    image: '',
-    linkedin: '/user.jpg',
-    email: 'jerome.bell@invision.com',
-    phone: '629.555.0129',
-    address: '232, 4th Street, Melbourne, Australia',
+    name: "Jerome Bell",
+    position: "Senior Software Developer",
+    image: "",
+    linkedin: "Jerome Bell",
+    email: "jerome.bell@invision.com",
+    phone: "629.555.0129",
+    address: "232, 4th Street, Melbourne, Australia",
     employmentDetails: {
-      clientName: 'Invision Pvt. Ltd',
-      location: 'Melbourne, Australia',
-      employmentType: 'Contract',
-      mode: 'Hybrid',
-      reportingTo: 'Mary Houston - COO',
+      clientName: "Invision Pvt. Ltd",
+      location: "Melbourne, Australia",
+      employmentType: "Contract",
+      mode: "Hybrid",
+      reportingTo: "Mary Houston - COO",
     },
     contractDetails: {
-      startedOn: '12/05/2023',
-      contractStartDate: '12/05/2024',
-      contractEndDate: '12/05/2025',
-      incrementDate: '12/05/2025',
+      startedOn: "12/05/2023",
+      contractStartDate: "12/05/2024",
+      contractEndDate: "12/05/2025",
+      incrementDate: "12/05/2025",
     },
     paymentDetails: {
       salaryPerMonth: 5500,
-      monthlyPaymentDate: '7th',
-      invoiceCycleEnds: 'Last day of the month',
+      monthlyPaymentDate: "7th",
+      invoiceCycleEnds: "Last day of the month",
       lastIncrementPercent: 15,
     },
   },
   notes: [
     {
-      id: '1',
+      id: "1",
       content:
-        'Jerome has been working and leading on PV-21 project with enthusiasm and high level of dedication.',
-      date: '15/04/2025',
-      priority: 'important',
+        "Jerome has been working and leading on PV-21 project with enthusiasm and high level of dedication.",
+      date: "15/04/2025",
+      priority: "important",
     },
     {
-      id: '2',
+      id: "2",
       content:
-        'Jerome has been caught smoking in the office premises which violates company policy.',
-      date: '05/01/2025',
-      priority: 'normal',
+        "Jerome has been caught smoking in the office premises which violates company policy.",
+      date: "05/01/2025",
+      priority: "normal",
     },
   ],
 };
 
 const employeeSlice = createSlice({
-  name: 'employee',
+  name: "employee",
   initialState,
   reducers: {
     updateEmployee(state, action: PayloadAction<EmployeeData>) {
       state.employeeData = action.payload;
     },
     addNote(state, action: PayloadAction<Note>) {
-  state.notes.push(action.payload);
-},
+      state.notes.push(action.payload);
+    },
   },
 });
 
 // Export action creator for dispatching updates
-export const { updateEmployee,addNote } = employeeSlice.actions;
+export const { updateEmployee, addNote } = employeeSlice.actions;
 
 // Export reducer as default
 export default employeeSlice.reducer;
