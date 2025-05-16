@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchPayslips } from "../store/employeeTabsSlice";
 import { RootState, AppDispatch } from "../store";
 import { FaFileInvoiceDollar, FaEye } from "react-icons/fa";
+import Loader from "./Loader";
 
 const PayslipsTab = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -17,7 +18,7 @@ const PayslipsTab = () => {
   if (loading)
     return (
       <div className='bg-white rounded-lg p-6 border border-gray-200 text-center'>
-        Loading payslips...
+        <Loader />
       </div>
     );
   if (error)

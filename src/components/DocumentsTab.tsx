@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchDocuments } from '../store/employeeTabsSlice';
 import { RootState, AppDispatch } from '../store';
 import { FaFileAlt, FaDownload } from 'react-icons/fa';
+import Loader from './Loader';
 
 const DocumentsTab = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -12,7 +13,7 @@ const DocumentsTab = () => {
     dispatch(fetchDocuments());
   }, [dispatch]);
 
-  if (loading) return <div className="bg-white rounded-lg p-6 border border-gray-200 text-center">Loading documents...</div>;
+  if (loading) return <div className="bg-white rounded-lg p-6 border border-gray-200 text-center"><Loader/></div>;
   if (error) return <div className="bg-white rounded-lg p-6 border border-gray-200 text-red-600 text-center">Error: {error}</div>;
 
   return (

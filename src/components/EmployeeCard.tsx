@@ -72,7 +72,7 @@ const EmployeeCard = () => {
           <img
             src={employee.image || "/user.jpg"}
             alt={employee.name}
-            className='w-32 h-32 rounded-lg object-cover'
+            className='w-16 h-16 md:w-32 md:h-32 rounded-lg object-cover'
           />
         </div>
         <div className='flex-1'>
