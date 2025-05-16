@@ -30,7 +30,7 @@ const DetailsTab = () => {
   const paymentDetails = employeeData.paymentDetails || {};
 
   return (
-    <div className='space-y-8'>
+    <div className='space-y-5'>
       <section className='bg-white rounded-lg p-6 border border-gray-200'>
         <h3 className='text-base font-semibold text-gray-800 mb-4'>
           Employment Details

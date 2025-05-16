@@ -16,7 +16,7 @@ const AttendanceTab = () => {
 
   if (loading)
     return (
-      <div className='p-6 text-center'>
+      <div className='bg-white rounded-lg p-6 border border-gray-200 text-center'>
         <Loader />
       </div>
     );

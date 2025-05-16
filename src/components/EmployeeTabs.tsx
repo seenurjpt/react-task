@@ -11,7 +11,7 @@ const EmployeeTabs = () => {
   const [activeTab, setActiveTab] = useState<Tab>('Details');
 
   return (
-    <div className="max-w-4xl mx-auto rounded-lg">
+    <div className="mx-auto rounded-lg">
       <nav className="flex space-x-6 border-b mb-6 text-sm font-medium text-gray-600">
         {tabs.map((tab) => (
           <button

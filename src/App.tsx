@@ -51,7 +51,7 @@ function MainLayout({ children }: MainLayoutProps): JSX.Element {
           <Navbar toggleSidebar={toggleSidebar} />
         </div>
         {/* Page content: scrollable, takes remaining space */}
-        <main className='p-6 flex-1 overflow-auto'>{children}</main>
+        <main className='p-4 flex-1 overflow-auto'>{children}</main>
       </div>
     </div>
   );

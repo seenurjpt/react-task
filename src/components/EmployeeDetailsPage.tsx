@@ -6,7 +6,7 @@ const EmployeeDetailsPage = () => {
   return (
     <>
       <EmployeeCard />
-      <div className="flex flex-col md:flex-row md:space-x-6 lg:space-x-8">
+      <div className="flex flex-col md:flex-row gap-4">
 
       <div className="w-full md:w-[70%] mb-6 md:mb-0">
         <EmployeeTabs />
