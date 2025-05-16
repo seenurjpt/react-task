@@ -81,7 +81,7 @@ const initialState: EmployeeState = {
       id: "1",
       content:
         "Jerome has been working and leading on PV-21 project with enthusiasm and high level of dedication.",
-      date: "15/04/2025",
+      date: "05/10/2025",
       priority: "important",
     },
     {
@@ -90,6 +90,13 @@ const initialState: EmployeeState = {
         "Jerome has been caught smoking in the office premises which violates company policy.",
       date: "05/01/2025",
       priority: "normal",
+    },
+    {
+      id: "3",
+      content:
+        "Jerome has been working and leading on PV-21 project with enthusiasm and high level of dedication.",
+      date: "05/10/2025",
+      priority: "important",
     },
   ],
 };

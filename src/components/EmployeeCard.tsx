@@ -80,7 +80,7 @@ const EmployeeCard = () => {
             <h1 className='text-2xl font-semibold text-gray-800'>
               {employee.name}
             </h1>
-            <span className='text-xs font-medium bg-green-100 text-green-700 px-2 py-0.5 rounded-md'>
+            <span className='text-xs font-medium bg-green-100 text-green-700 px-2 py-0.5 rounded-xl'>
               Active
             </span>
             <button
